@@ -41,9 +41,8 @@ export class FavoriteMovieComponent implements OnInit {
   showRemoveConfirm(favoriteMovie) {
     this.simpleModalService
       .addModal(ConfirmComponent, {
-        title: "Đăng xuất",
-        message:
-          "Một vài tính năng sẽ bị vô hiệu hóa khi bạn đăng xuất, bạn có chắc chắn cần đăng xuất bây giờ không?",
+        title: "Xóa",
+        message: `Bạn có muốn xóa ${favoriteMovie.original_title} khỏi danh sách yêu thích không?`,
       })
       .subscribe((isConfirmed) => {
         //We get modal result

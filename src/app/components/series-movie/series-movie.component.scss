@@ -12,16 +12,16 @@
 .content {
   color: #e0cb11;
   font-family: Oswald, sans-serif;
-  font-size: 30px;
+  font-size: 26px;
   text-shadow: 1px 1px 1px #1a1a1a;
   text-transform: uppercase;
   border-bottom: 1px solid #1b3c5d;
-  margin-left: 95px;
-  margin-right: 95px;
+  margin-left: 65px;
+  margin-right: 65px;
 }
 
 .card {
-  height: 580px;
+  height: 470px;
 }
 
 .fas {
@@ -38,8 +38,8 @@
 }
 
 select {
-  width: 320px;
-  font-size: 21px;
+  width: 270px;
+  font-size: 17px;
 }
 
 .card:hover {
@@ -49,5 +49,5 @@ select {
 
   transition: 0.3s;
 
-  width: 20rem !important;
+  width: 16.3rem !important;
 }

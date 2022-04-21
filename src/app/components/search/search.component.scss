@@ -15,7 +15,7 @@
   .search {
     padding-top: 15vh;
     li {
-      font-size: 20px;
+      font-size: 16px;
     }
   }
 }
@@ -23,14 +23,16 @@
 .content {
   color: #e0cb11;
   font-family: Oswald, sans-serif;
-  font-size: 30px;
+  font-size: 24px;
   text-shadow: 1px 1px 1px #1a1a1a;
   text-transform: uppercase;
   border-bottom: 1px solid #1b3c5d;
+  margin-left: 65px;
+  margin-right: 65px;
 }
 
 .card {
-  height: 580px;
+  height: 470px;
 }
 
 .fas {
@@ -47,8 +49,8 @@
 }
 
 select {
-  width: 320px;
-  font-size: 21px;
+  width: 270px;
+  font-size: 17px;
 }
 
 .card:hover {
@@ -58,5 +60,5 @@ select {
 
   transition: 0.4s;
 
-  width: 20rem !important;
+  width: 16.3rem !important;
 }

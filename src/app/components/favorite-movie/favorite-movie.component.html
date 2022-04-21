@@ -9,7 +9,7 @@
         <div class="logo-phim mr-5">
           <img
             (click)="showDetail(favoriteMovie)"
-            style="width: 250px"
+            style="width: 200px"
             src="https://image.tmdb.org/t/p/w500{{ favoriteMovie.poster_path }}"
             alt=""
           />
@@ -18,17 +18,17 @@
         <div class="detail-phim text-white">
           <div class="mb-5">
             <div class="d-flex align-items-center justify-content-between">
-              <p class="h3">
+              <p class="h4">
                 {{ favoriteMovie.original_title }} (<span class="text-info">{{
                   favoriteMovie.release_date | date: "yyyy"
                 }}</span
                 >)
               </p>
-              <p class="h4 text-white-50">{{ favoriteMovie.runtime }} phút</p>
+              <p class="h5 text-white-50">{{ favoriteMovie.runtime }} phút</p>
             </div>
 
             <div class="d-flex align-items-center justify-content-between">
-              <p class="h4">
+              <p class="h5">
                 {{ favoriteMovie.tagline }}
               </p>
 
@@ -46,6 +46,7 @@
           <div class="mt-5 d-flex align-items-center justify-content-between">
             <div>
               <button
+                style="font-size: 13px"
                 *ngFor="let genre of favoriteMovie.genres"
                 class="btn btn-outline-dark bg-dark rounded-pill mr-2 text-white border-white"
               >
@@ -54,10 +55,10 @@
             </div>
 
             <p
-              style="font-size: 25px"
+              style="font-size: 20px"
               class="text-white d-flex align-items-center mb-0"
             >
-              <i style="font-size: 45px" class="fab fa-imdb text-warning"></i
+              <i style="font-size: 39px" class="fab fa-imdb text-warning"></i
               >&nbsp; {{ favoriteMovie.vote_average }}
             </p>
           </div>
@@ -65,7 +66,7 @@
           <div class="text-right">
             <button
               (click)="showRemoveConfirm(favoriteMovie)"
-              style="font-size: 20px"
+              style="font-size: 16px"
               class="btn btn-outline-danger mt-5 rounded-pill"
             >
               <i class="fas fa-times"></i> Xóa

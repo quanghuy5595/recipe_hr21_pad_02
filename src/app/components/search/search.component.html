@@ -1,5 +1,5 @@
 <div class="home">
-  <form class="search w-50 pl-5 pr-5">
+  <form class="search w-50 mx-auto pl-5 pr-5">
     <div class="mb-3 d-flex">
       <input
         [(ngModel)]="keywords"
@@ -14,7 +14,7 @@
     </div>
 
     <ul *ngIf="listMovieSearch.length === 0" class="text-white">
-      <p class="h3 mb-5 mt-5 text-info">Tại sao bạn nên xem phim ở đây:</p>
+      <p class="h4 mb-5 mt-5 text-info">Tại sao bạn nên xem phim ở đây:</p>
 
       <li>
         Là phim bluray (reencoded), có độ phân giải thấp nhất là Full HD
@@ -56,7 +56,7 @@
           (click)="showDetail(searchMovie)"
           class="col-2 mr-4 pb-5"
         >
-          <div class="card bg-dark text-white rounded" style="width: 19rem">
+          <div class="card bg-dark text-white rounded" style="width: 15.5rem">
             <img
               style="width: 100%"
               src="https://image.tmdb.org/t/p/w500{{ searchMovie.poster_path }}"
@@ -64,11 +64,11 @@
               alt="..."
             />
             <div class="card-body">
-              <h5 class="card-title">
+              <h6 class="card-title">
                 {{ searchMovie.original_title }} ({{
                   searchMovie.release_date | date: "yyyy"
                 }})
-              </h5>
+              </h6>
               <p class="card-text">
                 Rate: {{ searchMovie.vote_average }} <i class="fas fa-star"></i>
               </p>
@@ -78,7 +78,7 @@
       </div>
     </div>
     <div class="pb-5 pr-5 mr-5">
-      <div style="font-size: 30px" class="next-page text-white">
+      <div style="font-size: 25px" class="next-page text-white">
         <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </div>
     </div>

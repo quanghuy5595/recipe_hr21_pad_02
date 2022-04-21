@@ -18,7 +18,7 @@
           (click)="showDetail(hotMovie)"
           class="col-2 mr-4 pb-5"
         >
-          <div class="card bg-dark text-white" style="width: 19rem">
+          <div class="card bg-dark text-white" style="width: 15.5rem">
             <img
               style="max-width: 100%"
               src="https://image.tmdb.org/t/p/w500{{ hotMovie.poster_path }}"
@@ -26,11 +26,11 @@
               alt="..."
             />
             <div class="card-body">
-              <h5 class="card-title">
+              <h6 class="card-title mb-1">
                 {{ hotMovie.original_title }} ({{
                   hotMovie.release_date | date: "yyyy"
                 }})
-              </h5>
+              </h6>
               <p class="card-text">
                 Rate: {{ hotMovie.vote_average }} <i class="fas fa-star"></i>
               </p>
@@ -48,7 +48,7 @@
           (click)="showDetail(upCommingMovie)"
           class="col-2 mr-4 pb-5"
         >
-          <div class="card bg-dark text-white" style="width: 19rem">
+          <div class="card bg-dark text-white" style="width: 15.5rem">
             <img
               src="https://image.tmdb.org/t/p/w500{{
                 upCommingMovie.poster_path
@@ -57,11 +57,11 @@
               alt="..."
             />
             <div class="card-body">
-              <h5 class="card-title">
+              <h6 class="card-title mb-1">
                 {{ upCommingMovie.original_title }} ({{
                   upCommingMovie.release_date | date: "yyyy"
                 }})
-              </h5>
+              </h6>
               <p class="card-text">
                 Rate: {{ upCommingMovie.vote_average }}
                 <i class="fas fa-star"></i>
@@ -80,7 +80,7 @@
           *ngFor="let nowPlayingMovie of listNowPlayingMovie.results"
           (click)="showDetail(nowPlayingMovie)"
         >
-          <div class="card bg-dark text-white" style="width: 19rem">
+          <div class="card bg-dark text-white" style="width: 15.5rem">
             <img
               src="https://image.tmdb.org/t/p/w500{{
                 nowPlayingMovie.poster_path
@@ -89,11 +89,11 @@
               alt="..."
             />
             <div class="card-body">
-              <h5 class="card-title">
+              <h6 class="card-title mb-1">
                 {{ nowPlayingMovie.original_title }} ({{
                   nowPlayingMovie.release_date | date: "yyyy"
                 }})
-              </h5>
+              </h6>
               <p class="card-text">
                 Rate: {{ nowPlayingMovie.vote_average }}
                 <i class="fas fa-star"></i>
