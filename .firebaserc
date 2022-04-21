@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "huytq58-hn21-frf-pad-02": {
+      "hosting": {
+        "Movie-Web": [
+          "huytq58-hn21-frf-pad-02"
+        ]
+      }
+    }
+  }
+}

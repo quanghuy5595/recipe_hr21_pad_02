@@ -1,1 +1,130 @@
-<p>hot-movie works!</p>
+<div class="home">
+  <!-- <div class="header">
+      <video autoplay preload="auto" loop playsinline>
+        <source
+          type="video/webm"
+          src="https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/homepage/dota_montage_webm.webm"
+        />
+      </video>
+    </div> -->
+
+  <div class="p-5 body-home">
+    <div class="sort-box m-5 p-3 rounded">
+      <form
+        class="needs-validation d-flex text-white justify-content-around font-weight-bold"
+        novalidate
+      >
+        <div class="col-md-2 mb-3">
+          <label style="font-size: 23px">Năm: </label>
+          <select
+            style="height: 50px"
+            class="custom-select"
+            id="validationCustom04"
+            required
+          >
+            <option>- All -</option>
+            <option>2019</option>
+            <option>2020</option>
+            <option>2021</option>
+            <option>2022</option>
+          </select>
+          <div class="invalid-feedback">Please select a valid state.</div>
+        </div>
+
+        <div class="col-md-2 mb-3">
+          <label style="font-size: 23px">Thể loại:</label>
+          <select
+            style="height: 50px"
+            class="custom-select"
+            id="validationCustom04"
+            required
+          >
+            <option>- All -</option>
+            <option>Action</option>
+            <option>Adventure</option>
+            <option>Animation</option>
+            <option>Comedy</option>
+            <option>Crime</option>
+            <option>Documentary</option>
+            <option>Drama</option>
+            <option>Family</option>
+            <option>Fantasy</option>
+            <option>History</option>
+            <option>Horror</option>
+            <option>Music</option>
+            <option>Mystery</option>
+            <option>Romance</option>
+            <option>Science Fiction</option>
+            <option>War</option>
+            <option>Thriller</option>
+            <option>Western</option>
+          </select>
+          <div class="invalid-feedback">Please select a valid state.</div>
+        </div>
+
+        <div class="col-md-2 mb-3">
+          <label style="font-size: 23px">Quốc gia:</label>
+          <select
+            style="height: 50px"
+            class="custom-select"
+            id="validationCustom04"
+            required
+            #languageOpion
+          >
+            <option>- All -</option>
+            <option>en</option>
+            <option>fr</option>
+            <option>ja</option>
+            <option>es</option>
+            <option>ko</option>
+          </select>
+          <div class="invalid-feedback">Please select a valid state.</div>
+        </div>
+
+        <div class="col-md-2 mb-3">
+          <label style="font-size: 23px">Sắp xếp:</label>
+          <select
+            style="height: 50px"
+            class="custom-select"
+            id="validationCustom04"
+            required
+          >
+            <option>- All -</option>
+            <option>Rate</option>
+            <option>Vote</option>
+          </select>
+          <div class="invalid-feedback">Please select a valid state.</div>
+        </div>
+      </form>
+    </div>
+    <!-- _________________________________________________________________ -->
+    <div class="phim-de-cu mb-5">
+      <p class="content pb-2 font-weight-bold">phim hot</p>
+      <div class="list-film row justify-content-center mt-5">
+        <div
+          *ngFor="let hotMovie of listHotMovie.results"
+          class="col-2 mr-4 pb-5"
+        >
+          <div class="card bg-dark text-white" style="width: 19rem">
+            <img
+              style="max-width: 100%"
+              src="https://image.tmdb.org/t/p/w500{{ hotMovie.poster_path }}"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">
+                {{ hotMovie.original_title }} ({{
+                  hotMovie.release_date | date: "yyyy"
+                }})
+              </h5>
+              <p class="card-text">
+                Rate: {{ hotMovie.vote_average }} <i class="fas fa-star"></i>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

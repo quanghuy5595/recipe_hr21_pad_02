@@ -1,1 +1,135 @@
-<p>odd-movie works!</p>
+<div class="home">
+  <div class="p-5 body-home">
+    <div class="sort-box m-5 p-3 rounded">
+      <form
+        class="needs-validation d-flex text-white justify-content-around font-weight-bold"
+        novalidate
+      >
+        <div class="col-md-2 mb-3">
+          <label style="font-size: 21px">Năm: </label>
+          <select
+            #yearOption
+            (change)="filterByYear(yearOption)"
+            [routerLink]=""
+            [queryParams]="{ year: yearOption.value }"
+            style="height: 45px"
+            class="custom-select"
+            id="validationCustom04"
+            required
+          >
+            <option>- All -</option>
+            <option>2019</option>
+            <option>2020</option>
+            <option>2021</option>
+            <option>2022</option>
+          </select>
+          <div class="invalid-feedback">Please select a valid state.</div>
+        </div>
+
+        <div class="col-md-2 mb-3">
+          <label style="font-size: 21px">Thể loại:</label>
+          <select
+            #genreOtion
+            (change)="filterByGenre(genreOtion)"
+            [routerLink]=""
+            [queryParams]="{ genre: genreOtion.value }"
+            style="height: 45px"
+            class="custom-select"
+            id="validationCustom04"
+            required
+          >
+            <option>- All -</option>
+            <option>Action</option>
+            <option>Adventure</option>
+            <option>Animation</option>
+            <option>Comedy</option>
+            <option>Crime</option>
+            <option>Documentary</option>
+            <option>Drama</option>
+            <option>Family</option>
+            <option>Fantasy</option>
+            <option>History</option>
+            <option>Horror</option>
+            <option>Music</option>
+            <option>Mystery</option>
+            <option>Romance</option>
+            <option>Science Fiction</option>
+            <option>War</option>
+            <option>Thriller</option>
+            <option>Western</option>
+          </select>
+          <div class="invalid-feedback">Please select a valid state.</div>
+        </div>
+
+        <div class="col-md-2 mb-3">
+          <label style="font-size: 21px">Sắp xếp:</label>
+          <select style="height: 45px" class="custom-select" required>
+            <option>- All -</option>
+            <option>Rate</option>
+            <option>Vote</option>
+          </select>
+          <div class="invalid-feedback">Please select a valid state.</div>
+        </div>
+
+        <div class="form-group mb-0">
+          <label style="font-size: 21px">Tìm kiếm:</label>
+          <input
+            [(ngModel)]="keywords"
+            name="keywords"
+            placeholder="nhập từ khóa ..."
+            style="height: 45px"
+            type="text"
+            class="form-control"
+          />
+        </div>
+      </form>
+    </div>
+    <!-- _________________________________________________________________ -->
+    <div class="phim-de-cu mb-5">
+      <p class="content pb-2 font-weight-bold">phim Lẻ</p>
+      <div class="list-film row justify-content-center mt-5">
+        <div
+          *ngFor="
+            let hotMovie of listHotMovie
+              | filter: keywords
+              | paginate: { itemsPerPage: 20, currentPage: p }
+          "
+          class="col-2 mr-4 pb-5"
+          (click)="showDetail(hotMovie)"
+        >
+          <div class="card bg-dark text-white rounded" style="width: 19rem">
+            <img
+              style="width: 100%"
+              src="https://image.tmdb.org/t/p/w500{{ hotMovie.poster_path }}"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">
+                {{ hotMovie.original_title }} ({{
+                  hotMovie.release_date | date: "yyyy"
+                }})
+              </h5>
+              <p class="card-text">
+                Rate: {{ hotMovie.vote_average }} <i class="fas fa-star"></i>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pb-5 pr-5 mr-5">
+    <div style="font-size: 30px" class="next-page text-white">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+
+  <div class="text-right">
+    <a title="Back to top" href="#"
+      ><i class="fas fa-arrow-up btn btn-outline-success m-1"></i
+    ></a>
+  </div>
+</div>
+<ngx-spinner [name]="spinnerName" [type]="spinnerType"></ngx-spinner>

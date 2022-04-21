@@ -1,0 +1,31 @@
+.home {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7 ), rgba(0, 0, 0, 0.7)), 
+    url('../../../assets/VN-en-20220406-popsignuptwoweeks-perspective_alpha_website_medium.jpg'); 
+    background-size: auto;
+    width: 100%;
+
+    .body {
+        padding: 20px;
+    }
+}
+
+.content {
+    color: #e0cb11;
+    font-family: Oswald,sans-serif;
+    font-size: 30px;
+    text-shadow: 1px 1px 1px #1a1a1a;
+    text-transform: uppercase;
+    border-bottom: 1px solid #1b3c5d;
+}
+
+.card {
+   height: 580px;
+}
+
+.fas {
+    color: #e0cb11;
+}
+
+.sort-box {
+    background-color: rgba(14, 39, 64, 0.8);
+}

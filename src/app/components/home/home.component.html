@@ -1,15 +1,39 @@
 <div class="home">
+  <!-- <div class="header">
+    <video autoplay preload="auto" loop playsinline>
+      <source
+        type="video/webm"
+        src="https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/homepage/dota_montage_webm.webm"
+      />
+    </video>
+  </div> -->
+
   <div class="p-5 body-home">
     <!-- _________________________________________________________________ -->
-    <div class="phim-de-cu mb-5">
+    <div class="phim-de-cu mb-5 pt-5 mt-5">
       <p class="content pb-2 font-weight-bold">phim đề cử</p>
-      <div class="list-film row justify-content-between">
-        <div class="col-2">
-          <div class="card bg-dark text-white" style="width: 18rem">
-            <img src="..." class="card-img-top" alt="..." />
+      <div class="list-film row justify-content-center mt-5">
+        <div
+          *ngFor="let hotMovie of listHotMovie.results"
+          (click)="showDetail(hotMovie)"
+          class="col-2 mr-4 pb-5"
+        >
+          <div class="card bg-dark text-white" style="width: 19rem">
+            <img
+              style="max-width: 100%"
+              src="https://image.tmdb.org/t/p/w500{{ hotMovie.poster_path }}"
+              class="card-img-top"
+              alt="..."
+            />
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Card title</p>
+              <h5 class="card-title">
+                {{ hotMovie.original_title }} ({{
+                  hotMovie.release_date | date: "yyyy"
+                }})
+              </h5>
+              <p class="card-text">
+                Rate: {{ hotMovie.vote_average }} <i class="fas fa-star"></i>
+              </p>
             </div>
           </div>
         </div>
@@ -17,14 +41,31 @@
     </div>
     <!-- _________________________________________________________________ -->
     <div class="phim-le-moi mb-5">
-      <p class="content pb-2 font-weight-bold">phim lẻ mới cập nhật</p>
-      <div class="list-film row justify-content-between">
-        <div class="col-2">
-          <div class="card bg-dark text-white" style="width: 18rem">
-            <img src="..." class="card-img-top" alt="..." />
+      <p class="content pb-2 font-weight-bold">phim sắp chiếu</p>
+      <div class="list-film row justify-content-center mt-5">
+        <div
+          *ngFor="let upCommingMovie of listUpCommingMovie.results"
+          (click)="showDetail(upCommingMovie)"
+          class="col-2 mr-4 pb-5"
+        >
+          <div class="card bg-dark text-white" style="width: 19rem">
+            <img
+              src="https://image.tmdb.org/t/p/w500{{
+                upCommingMovie.poster_path
+              }}"
+              class="card-img-top"
+              alt="..."
+            />
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Card title</p>
+              <h5 class="card-title">
+                {{ upCommingMovie.original_title }} ({{
+                  upCommingMovie.release_date | date: "yyyy"
+                }})
+              </h5>
+              <p class="card-text">
+                Rate: {{ upCommingMovie.vote_average }}
+                <i class="fas fa-star"></i>
+              </p>
             </div>
           </div>
         </div>
@@ -32,14 +73,31 @@
     </div>
     <!-- _________________________________________________________________ -->
     <div class="phim-bo-moi mb-5">
-      <p class="content pb-2 font-weight-bold">phim bộ mới cập nhật</p>
-      <div class="list-film row justify-content-between">
-        <div class="col-2">
-          <div class="card bg-dark text-white" style="width: 18rem">
-            <img src="..." class="card-img-top" alt="..." />
+      <p class="content pb-2 font-weight-bold">phim đang chiếu</p>
+      <div class="list-film row justify-content-center mt-5">
+        <div
+          class="col-2 mr-4 pb-5"
+          *ngFor="let nowPlayingMovie of listNowPlayingMovie.results"
+          (click)="showDetail(nowPlayingMovie)"
+        >
+          <div class="card bg-dark text-white" style="width: 19rem">
+            <img
+              src="https://image.tmdb.org/t/p/w500{{
+                nowPlayingMovie.poster_path
+              }}"
+              class="card-img-top"
+              alt="..."
+            />
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Card title</p>
+              <h5 class="card-title">
+                {{ nowPlayingMovie.original_title }} ({{
+                  nowPlayingMovie.release_date | date: "yyyy"
+                }})
+              </h5>
+              <p class="card-text">
+                Rate: {{ nowPlayingMovie.vote_average }}
+                <i class="fas fa-star"></i>
+              </p>
             </div>
           </div>
         </div>

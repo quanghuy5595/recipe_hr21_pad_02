@@ -1,0 +1,80 @@
+<div class="home">
+  <div class="body">
+    <form>
+      <p class="login text-white">Đăng nhập</p>
+
+      <p class="text-white mb-5">
+        Có thể đăng nhập bằng tài khoản
+        <span class="text-warning font-weight-bolder">HuyWeb</span> hoặc đăng
+        nhập bằng tài khoản &nbsp;
+        <a
+          href="https://www.facebook.com/"
+          class="text-primary font-weight-bolder"
+          target="blank"
+        >
+          Facebook
+        </a>
+        &nbsp;
+        <a
+          href="https://id.zalo.me/account?continue=https%3A%2F%2Fchat.zalo.me%2F"
+          target="blank"
+          class="text-primary font-weight-bolder"
+          >Zalo</a
+        >
+      </p>
+      <div class="form-group">
+        <input
+          type="email"
+          class="form-control mb-4"
+          placeholder="Nhập số điện thoại hoặc Email ..."
+          [(ngModel)]="user.email"
+          name="email"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          class="form-control mb-4"
+          placeholder="Nhập mật khẩu ..."
+          [(ngModel)]="user.password"
+          name="password"
+        />
+      </div>
+      <div class="layout-btn">
+        <button
+          (click)="login()"
+          type="submit"
+          class="btn-login btn btn-primary"
+        >
+          Đăng nhập
+        </button>
+      </div>
+
+      <p class="text-orange">Quên mật khẩu?</p>
+
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="q-code p-2 mr-3 mb-4">
+          <img src="../../../assets/qr-code.png" alt="" />
+        </div>
+        <p class="text-orange">Đăng nhập nhanh với mã QR</p>
+      </div>
+
+      <p class="or mb-5">--- Hoặc tiếp tục với ---</p>
+
+      <div class="d-flex align-items-center justify-content-center mb-5">
+        <div class="p-3 bg-white rounded-circle mr-5">
+          <img style="width: 45px" src="../../../assets/facebook.png" alt="" />
+        </div>
+
+        <div class="p-3 bg-white rounded-circle">
+          <img style="width: 45px" src="../../../assets/Gmail.png" alt="" />
+        </div>
+      </div>
+
+      <p style="font-size: 22px" class="text-white text-center">
+        Chưa có tài khoản? <Span class="text-orange">Đăng ký</Span>
+      </p>
+    </form>
+  </div>
+</div>
+<ngx-spinner [name]="spinnerName" [type]="spinnerType"></ngx-spinner>

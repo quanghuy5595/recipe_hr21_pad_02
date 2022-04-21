@@ -1,1 +1,30 @@
+.navbar {
+  position: fixed;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
 
+li :hover {
+  color: #428bca !important;
+  background-color: rgba(14, 39, 64, 0.8);
+  transition: 0.3s;
+}
+
+a {
+  padding: 15px !important;
+}
+
+.select-navbar {
+  color: #428bca !important;
+  background-color: rgba(14, 39, 64, 0.8);
+}
+
+.username {
+  margin-right: 20px;
+  font-size: 22px;
+}
+
+.nav-login {
+  background-color: rgba(0, 0, 0, 0);
+}

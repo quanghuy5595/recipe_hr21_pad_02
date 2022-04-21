@@ -1,0 +1,92 @@
+<div class="home">
+  <form class="search w-50 pl-5 pr-5">
+    <div class="mb-3 d-flex">
+      <input
+        [(ngModel)]="keywords"
+        (input)="inputKeywords()"
+        name="keywords"
+        placeholder="Nhập tên phim ..."
+        type="email"
+        class="form-control mr-3"
+      />
+
+      <!-- <button class="btn btn-outline-primary text-white border">Search</button> -->
+    </div>
+
+    <ul *ngIf="listMovieSearch.length === 0" class="text-white">
+      <p class="h3 mb-5 mt-5 text-info">Tại sao bạn nên xem phim ở đây:</p>
+
+      <li>
+        Là phim bluray (reencoded), có độ phân giải thấp nhất là Full HD
+        (1080p), trong khi hầu hết các trang phim khác chỉ có tới độ phân giải
+        HD (720p) là cao nhất
+      </li>
+      <li>
+        Chất lượng cao, lượng dữ liệu trên giây (bitrate) gấp từ 5 - 10 lần phim
+        online thông thường - đây là yếu tố quyết định độ nét của phim (thậm chí
+        còn quan trọng hơn độ phân giải)
+      </li>
+      <li>
+        Âm thanh 5.1 (6 channel) thay vì stereo (2 channel) như các trang phim
+        khác (kể cả Youtube)
+      </li>
+      <li>
+        Phù hợp để xem trên màn hình TV, máy tính, laptop có độ phân giải cao
+      </li>
+      <li>
+        Nếu không hài lòng với phụ đề có sẵn, bạn có thể tự upload phụ đề của
+        riêng mình để xem online
+      </li>
+      <li>
+        Có lựa chọn hiện phụ đề song ngữ (tức hiện đồng thời cả tiếng Anh &
+        tiếng Việt), phù hợp với những người muốn học tiếng Anh qua phụ đề phim
+      </li>
+    </ul>
+  </form>
+
+  <div *ngIf="listMovieSearch.length > 0" class="p-5 body-home">
+    <div class="phim-de-cu mb-5">
+      <p class="content pb-2 font-weight-bold">Kết quả tìm kiếm:</p>
+      <div class="list-film row justify-content-center mt-5">
+        <div
+          *ngFor="
+            let searchMovie of listMovieSearch
+              | paginate: { itemsPerPage: 10, currentPage: p }
+          "
+          (click)="showDetail(searchMovie)"
+          class="col-2 mr-4 pb-5"
+        >
+          <div class="card bg-dark text-white rounded" style="width: 19rem">
+            <img
+              style="width: 100%"
+              src="https://image.tmdb.org/t/p/w500{{ searchMovie.poster_path }}"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">
+                {{ searchMovie.original_title }} ({{
+                  searchMovie.release_date | date: "yyyy"
+                }})
+              </h5>
+              <p class="card-text">
+                Rate: {{ searchMovie.vote_average }} <i class="fas fa-star"></i>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pb-5 pr-5 mr-5">
+      <div style="font-size: 30px" class="next-page text-white">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+  <!-- 
+  <div class="pb-5 pr-5 mr-5">
+    <div style="font-size: 30px" class="next-page text-white">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div> -->
+</div>

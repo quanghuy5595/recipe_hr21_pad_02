@@ -1,0 +1,78 @@
+<div class="home">
+  <div class="p-5 body-home">
+    <div class="phim-yeu-thich mb-5">
+      <p class="content pb-2 font-weight-bold">Danh sách phim yêu thích</p>
+      <div
+        *ngFor="let favoriteMovie of listFavoriteMovie"
+        class="list-phim d-flex border-bottom pb-3 mt-3"
+      >
+        <div class="logo-phim mr-5">
+          <img
+            (click)="showDetail(favoriteMovie)"
+            style="width: 250px"
+            src="https://image.tmdb.org/t/p/w500{{ favoriteMovie.poster_path }}"
+            alt=""
+          />
+        </div>
+
+        <div class="detail-phim text-white">
+          <div class="mb-5">
+            <div class="d-flex align-items-center justify-content-between">
+              <p class="h3">
+                {{ favoriteMovie.original_title }} (<span class="text-info">{{
+                  favoriteMovie.release_date | date: "yyyy"
+                }}</span
+                >)
+              </p>
+              <p class="h4 text-white-50">{{ favoriteMovie.runtime }} phút</p>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-between">
+              <p class="h4">
+                {{ favoriteMovie.tagline }}
+              </p>
+
+              <p
+                *ngFor="let item of favoriteMovie.production_countries"
+                class="h4"
+              >
+                {{ item.name }} ({{ item.iso_3166_1 }})
+              </p>
+            </div>
+          </div>
+          <p class="h6">
+            {{ favoriteMovie.overview }}
+          </p>
+          <div class="mt-5 d-flex align-items-center justify-content-between">
+            <div>
+              <button
+                *ngFor="let genre of favoriteMovie.genres"
+                class="btn btn-outline-dark bg-dark rounded-pill mr-2 text-white border-white"
+              >
+                {{ genre.name }}
+              </button>
+            </div>
+
+            <p
+              style="font-size: 25px"
+              class="text-white d-flex align-items-center mb-0"
+            >
+              <i style="font-size: 45px" class="fab fa-imdb text-warning"></i
+              >&nbsp; {{ favoriteMovie.vote_average }}
+            </p>
+          </div>
+
+          <div class="text-right">
+            <button
+              (click)="showRemoveConfirm(favoriteMovie)"
+              style="font-size: 20px"
+              class="btn btn-outline-danger mt-5 rounded-pill"
+            >
+              <i class="fas fa-times"></i> Xóa
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,39 +1,136 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav
+  *ngIf="authService.isLoggedIn()"
+  class="navbar navbar-expand-lg navbar-dark p-0"
+>
   <div class="pr-3">
     <img
-      width="120px"
-      src="https://xemphim.club/static/skin/logo-full.png"
+      class="logo pr-3 pl-3"
+      width="170px"
+      src="../../../assets/logo-full.png"
       alt=""
+      routerLink="/"
     />
   </div>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse">
     <ul style="font-size: 20px" class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Phim Hot</a>
+      <li *ngIf="authService.isLoggedIn()" class="nav-item">
+        <a
+          class="nav-link text-white"
+          routerLink="odd-movie"
+          routerLinkActive="select-navbar"
+          >Phim Lẻ</a
+        >
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link">Phim Lẻ</a>
+      <li *ngIf="authService.isLoggedIn()" class="nav-item">
+        <a
+          class="nav-link text-white"
+          routerLink="series-movie"
+          routerLinkActive="select-navbar"
+          >Phim Bộ</a
+        >
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link">Phim Bộ</a>
+      <li *ngIf="authService.isLoggedIn()" class="nav-item">
+        <a
+          class="nav-link text-white"
+          routerLink="favorite"
+          routerLinkActive="select-navbar"
+          >Phim yêu thích</a
+        >
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link">Phim Mới</a>
+      <li *ngIf="authService.isLoggedIn()" class="nav-item">
+        <a
+          class="nav-link text-white"
+          routerLink="search"
+          routerLinkActive="select-navbar"
+          ><i class="fas fa-search"></i> Tìm kiếm</a
+        >
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input
-        class="form-control mr-sm-2"
-        type="search"
-        placeholder="Search"
-        aria-label="Search"
-      />
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-        Search
+
+    <div>
+      <button
+        *ngIf="authService.user"
+        class="btn nav-item dropdown p-0 border-0"
+      >
+        <a
+          class="nav-link dropdown-toggle username"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img
+            class="rounded-circle"
+            style="width: 35px; height: 35px"
+            src="../../../assets/Quanghuy_Avata.png"
+            alt=""
+          />
+          {{ getUserName() }}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#"
+            ><i class="fas fa-cog"></i> Cài đặt</a
+          >
+
+          <a class="dropdown-item" href="#"
+            ><i class="fas fa-info-circle"></i> Tài khoản</a
+          >
+
+          <a class="dropdown-item" href="#">
+            <img style="width: 17px" src="../../../assets/cash.png" alt="" />
+            Nạp tiền</a
+          >
+
+          <div class="dropdown-divider"></div>
+          <button
+            *ngIf="authService.isLoggedIn()"
+            (click)="showConfirm()"
+            style="font-size: 22px"
+            class="btn btn-outline-primary pl-3 pr-3 border-0"
+          >
+            <img style="width: 25px" src="../../../assets/logout.png" alt="" />
+            Đăng xuất
+          </button>
+        </div>
       </button>
-    </form>
+
+      <button
+        *ngIf="!authService.isLoggedIn()"
+        style="font-size: 22px"
+        class="btn btn-outline-danger text-white mr-3 pl-3 pr-3 border-0"
+        routerLink="login"
+      >
+        <img style="width: 25px" src="../../../assets/login.png" alt="" /> Đăng
+        nhập
+      </button>
+
+      <!-- <button
+        *ngIf="authService.isLoggedIn()"
+        (click)="logout()"
+        style="font-size: 22px"
+        class="btn btn-outline-primary text-white mr-3 pl-3 pr-3 border-0"
+      >
+        <img style="width: 25px" src="../../../assets/logout.png" alt="" /> Đăng
+        xuất
+      </button> -->
+    </div>
   </div>
 </nav>
+
+<nav
+  *ngIf="!authService.isLoggedIn()"
+  class="nav-login navbar navbar-expand-lg navbar-dark p-0 justify-content-end"
+>
+  <button
+    style="font-size: 22px; padding: 15px"
+    class="btn btn-outline-danger text-white mr-3 pl-3 pr-3 border-0"
+    routerLink="login"
+  >
+    <img style="width: 25px" src="../../../assets/login.png" alt="" /> Đăng nhập
+  </button>
+</nav>
+<!-- Latest compiled and minified CSS -->
